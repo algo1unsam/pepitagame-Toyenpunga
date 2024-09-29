@@ -33,7 +33,7 @@ object pepita {
 	}
 
 	method vola(kms) {
-		//energia = energia - (kms * 9)
+		energia = energia - (kms * 9)
 		//return energia
 	}
 
@@ -43,6 +43,9 @@ object pepita {
 				self.vola(position.distance(nuevaPosicion))
 				position = nuevaPosicion
 			}
+		}
+		if(energia <= 0){
+			self.terminar()
 		}
 
 	}

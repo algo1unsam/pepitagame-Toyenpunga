@@ -53,11 +53,10 @@ object config {
 		
 		keyboard.c().onPressDo({ pepita.come(game.uniqueCollider(pepita)) 
 								game.removeVisual(game.uniqueCollider(pepita))})
-
 	}
 
 	method configurarGravedad(){
-		//game.onTick(800,"gravedad", {pepita.gravedad()})
+		game.onTick(800,"gravedad", {pepita.gravedad()})
 	}
 	
 	method configurarColisiones() {
