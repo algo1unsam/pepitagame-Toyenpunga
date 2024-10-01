@@ -8,10 +8,6 @@ object pepita {
 
 	method posicion() = position
 	
-	method restriccionx() =self.posicion().x().max(1).min(10)
-	method restricciony() =self.posicion().y().max(10).min(1)
-	
-
 	method image() {
 		return if (self.estaEnElNido()) {
 		"pepita-grande.png" 
@@ -34,20 +30,18 @@ object pepita {
 
 	method vola(kms) {
 		energia = energia - (kms * 9)
-		//return energia
 	}
 
 	method irA(nuevaPosicion) {
-		if((nuevaPosicion.x()>=0 && nuevaPosicion.x()<=9) && (nuevaPosicion.y()>=0 && nuevaPosicion.y()<=9)){
+		if(nuevaPosicion.x().between(0,9) && nuevaPosicion.y().between(0,9)){
 			if(!self.estaCansada() ){
-				self.vola(position.distance(nuevaPosicion))
-				position = nuevaPosicion
+			self.vola(position.distance(nuevaPosicion))
+			position = nuevaPosicion
 			}
 		}
 		if(energia <= 0){
 			self.terminar()
 		}
-
 	}
 
 	method gravedad() {
